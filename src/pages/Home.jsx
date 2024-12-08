@@ -5,6 +5,7 @@ import Background from "../assets/bg1.webp";
 import Background2 from "../assets/bg2.webp";
 import BlockCard from "./BlockCard";
 import HowWeAddValue from "./HowWeAddValue";
+import BusinessServiceHero from "../components/BusinessServiceHero";
 
 function Home() {
   return (
@@ -262,6 +263,8 @@ function Home() {
           <HowWeAddValue />
         </div>
 
+    
+
         {/* **************************************************************** */}
 
         {/* <div className="w-full min-h-[100vh] bg-[#1B293B]">
@@ -325,6 +328,12 @@ function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+
+            {/* ******************************************** */}
+            <div >
+          <BusinessServiceHero/>
         </div>
       </div>
     </>
