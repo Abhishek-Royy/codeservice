@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contactus from "./pages/Contactus";
 import Customer from "./pages/Customer";
 import Service from "./pages/Service";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/customer" element={<Customer />} />
           <Route path="/contact-us" element={<Contactus />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

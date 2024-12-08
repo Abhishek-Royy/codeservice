@@ -113,7 +113,7 @@ const Navbar = () => {
   const navItems = [
     { id: 1, text: "HOME", route: "/" },
     { id: 2, text: "ABOUT", route: "/about" },
-    { id: 3, text: "SERVICE", route: "/services" },
+    { id: 3, text: "SERVICE", route: "/service" },
     { id: 4, text: "CUSTOMER", route: "/customer" },
     { id: 5, text: "CONTACT US", route: "/contact-us" },
   ];
