@@ -156,7 +156,7 @@ const Navbar = () => {
         />
       </Link>
       {/* Desktop Navigation */}
-      <ul className="hidden md:flex items-center">
+      <ul className="hidden md:flex items-center ">
         {navItems.map((item) => (
           <li
             key={item.id}

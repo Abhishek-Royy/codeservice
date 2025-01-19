@@ -134,7 +134,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="mt-10 text-center text-sm text-gray-400">
-        <p>Copyright © 2023 Powered by Tech Sky Bird</p>
+        <p>Copyright © 2025 Powered by CodeFusion Co.</p>
       </div>
     </footer>
   );

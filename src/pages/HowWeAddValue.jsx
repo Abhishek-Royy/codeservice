@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const HowWeAddValue = () => {
   const cards = [
@@ -32,7 +33,7 @@ const HowWeAddValue = () => {
   ];
 
   return (
-    <div className="bg-gray-100 lg:h-[95vh] flex items-center justify-center flex-col lg:py-0 py-24 lg:px-32 px-2  ">
+    <motion.div className="bg-gray-100 lg:h-[95vh] flex items-center justify-center flex-col lg:py-0 py-24 lg:px-32 px-2  ">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-[#2B2F6F]">
           How We Add Value To Your Business
@@ -43,7 +44,12 @@ const HowWeAddValue = () => {
           single roof — without handoffs.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 8 }}
+      >
         {cards.map((card, index) => (
           <div
             key={index}
@@ -54,8 +60,8 @@ const HowWeAddValue = () => {
             <p className="text-center mt-2 text-sm">{card.description}</p>
           </div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

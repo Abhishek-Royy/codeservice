@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 
 import Background from "../assets/bg1.webp";
@@ -7,7 +7,78 @@ import BlockCard from "./BlockCard";
 import HowWeAddValue from "./HowWeAddValue";
 import BusinessServiceHero from "../components/BusinessServiceHero";
 
+import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 function Home() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Heading animation
+      gsap.from(".heading", {
+        opacity: 0,
+        y: -50,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2,
+      });
+
+      // Subheading animation
+      gsap.from(".subheading", {
+        opacity: 0,
+        x: -50,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.4,
+      });
+
+      // Paragraph animation
+      gsap.from(".content", {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.6,
+      });
+
+      // Buttons animation
+      gsap.from(".buttons button", {
+        opacity: 1,
+
+        duration: 0.5,
+        ease: "back.out(1.7)",
+        delay: 0.2,
+      });
+    }, containerRef);
+
+    return () => ctx.revert(); // Cleanup GSAP context
+  }, []);
+
+  // **************************************************************************
+  useEffect(() => {
+    const cards = gsap.utils.toArray(".card");
+
+    gsap.set(cards, { opacity: 0, y: 50 }); // Initial state
+
+    cards.forEach((card, index) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: index * 0.2, // Stagger effect for cards
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%", // Start animation when card reaches 80% of viewport
+          toggleActions: "play none none reverse", // Replay on scroll back
+        },
+      });
+    });
+  }, []);
+
   return (
     <>
       <div className="main-wrapper w-full h-auto">
@@ -28,7 +99,7 @@ function Home() {
           {/* Content Section */}
           <div className="cont-1 lg:w-full lg:h-[88vh] h-auto w-[95%] mx-auto px-0  lg:px-20 lg:flex items-center relative z-10 py-20">
             {/* Left Content */}
-            <div className="cont1-left w-full lg:w-1/2 h-full flex flex-col justify-center lg:text-left text-center space-y-6">
+            {/* <div className="cont1-left w-full lg:w-1/2 h-full flex flex-col justify-center lg:text-left text-center space-y-6">
               <p className="text-[#CD222B] font-semibold text-lg ">
                 START YOUR DIGITAL BUSINESS
               </p>
@@ -48,6 +119,33 @@ function Home() {
                   Get Started
                 </button>
                 <button className="py-3 lg:w-[160px] w-full mt-5 border border-white text-white font-semibold rounded-md hover:bg-[#008FF2] transition duration-300">
+                  Read More
+                </button>
+              </div>
+            </div> */}
+            <div
+              className="cont1-left w-full lg:w-1/2 h-full flex flex-col justify-center lg:text-left text-center space-y-6"
+              ref={containerRef}
+            >
+              <p className="text-[#CD222B] font-semibold text-lg heading">
+                START YOUR DIGITAL BUSINESS
+              </p>
+              <h1 className="text-white text-4xl lg:text-6xl font-bold leading-tight drop-shadow-lg subheading">
+                One-Stop Digital Solution For Your Business Growth
+              </h1>
+              <p className="text-white text-base leading-relaxed content">
+                Tech Sky Bird is a full-service digital marketing firm offering
+                a broad range of online advertising services with a mission to
+                give wings to your dreams and ideas. We keep up the client’s
+                online presence and make sure a good ROI with the impetus of
+                engaging content, responsive and scalable website design,
+                graphics, and overall marketing expertise.
+              </p>
+              <div className="lg:flex gap-4 w-full buttons">
+                <button className="py-3 lg:w-[160px] w-full bg-[#CD2234] text-white font-semibold rounded-md hover:bg-[#008FF2] transition duration-300">
+                  Get Started
+                </button>
+                <button className="py-3 lg:w-[160px] w-full mt-5 lg:mt-0 border border-white text-white font-semibold rounded-md hover:bg-[#008FF2] transition duration-300">
                   Read More
                 </button>
               </div>
@@ -73,7 +171,12 @@ function Home() {
 
           <div className="card-box-1 w-full min-h-[550px] flex flex-wrap justify-center gap-6 p-2 mt-10">
             {/* Card 1 */}
-            <div className="bg-[#102a43] text-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+            <motion.div
+              className="bg-[#102a43] text-white rounded-lg shadow-lg p-6 max-w-sm w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
               <h2 className="text-2xl font-bold text-[#57a4ff] mb-4">
                 Website Design
               </h2>
@@ -93,10 +196,15 @@ function Home() {
                   className="rounded-lg shadow-md"
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 2 */}
-            <div className="bg-[#102a43] text-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+            <motion.div
+              className="bg-[#102a43] text-white rounded-lg shadow-lg p-6 max-w-sm w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2 }}
+            >
               <h2 className="text-2xl font-bold text-[#57a4ff] mb-4">
                 Social Media Marketing
               </h2>
@@ -113,10 +221,15 @@ function Home() {
                   className="rounded-lg shadow-md"
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 3 */}
-            <div className="bg-[#102a43] text-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+            <motion.div
+              className="bg-[#102a43] text-white rounded-lg shadow-lg p-6 max-w-sm w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 3 }}
+            >
               <h2 className="text-2xl font-bold text-[#57a4ff] mb-4">
                 Graphic Design
               </h2>
@@ -134,7 +247,7 @@ function Home() {
                   className="rounded-lg shadow-md"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
           <button className="py-4 w-[160px]  mt-10 bg-[#CD2234] text-white font-semibold rounded-md hover:bg-[#008FF2] transition duration-300">
             More Services
@@ -263,8 +376,6 @@ function Home() {
           <HowWeAddValue />
         </div>
 
-    
-
         {/* **************************************************************** */}
 
         {/* <div className="w-full min-h-[100vh] bg-[#1B293B]">
@@ -275,6 +386,8 @@ function Home() {
           />
           dsvndsjkbv
         </div> */}
+
+        {/* +++++++++++++++++++++++++++ */}
         <div className="relative w-full min-h-[100vh] bg-[#1B293B] flex item-center justify-center">
           {/* Background Image */}
           <img
@@ -285,7 +398,9 @@ function Home() {
 
           {/* Overlay Text Content */}
           <div className="relative z-10 flex flex-col justify-center items-center text-center text-white px-6 py-12">
-            <p className="text-xl md:text-lg font-bold mb-6 text-[#CD2234]">WHY CHOOSE US</p>
+            <p className="text-xl md:text-lg font-bold mb-6 text-[#CD2234]">
+              WHY CHOOSE US
+            </p>
             <p className="text-3xl md:text-4xl mb-10 max-w-2xl">
               With the right tools, you can create powerful online campaigns
               that will help your business reach a wider audience
@@ -330,10 +445,67 @@ function Home() {
           </div>
         </div>
 
+        {/* static code of why choose us section */}
+        {/* <div className="relative w-full min-h-[100vh] bg-[#1B293B] flex item-center justify-center">
+         
+          <img
+            src={Background2}
+            alt="Background"
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-20"
+          />
 
-            {/* ******************************************** */}
-            <div >
-          <BusinessServiceHero/>
+         
+          <div className="relative z-10 flex flex-col justify-center items-center text-center text-white px-6 py-12">
+            <p className="text-xl md:text-lg font-bold mb-6 text-[#CD2234]">
+              WHY CHOOSE US
+            </p>
+            <p className="text-3xl md:text-4xl mb-10 max-w-2xl">
+              With the right tools, you can create powerful online campaigns
+              that will help your business reach a wider audience
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-lg shadow-md transform translate-y-6">
+                <h3 className="text-xl font-semibold mb-3">
+                  LEADING DIGITAL MARKETING COMPANY
+                </h3>
+                <p className="text-sm">
+                  Tech Sky Bird is A Leading Digital Marketing Company in
+                  Kolkata . We offer customized deals and effective digital
+                  marketing solutions for every business either big or small.
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-red-600 to-pink-600 p-6 rounded-lg shadow-md transform -translate-y-4">
+                <h3 className="text-xl font-semibold mb-3">TRUST & DELIVERY</h3>
+                <p className="text-sm">
+                  We are entrusted to providing our clients with exceptional
+                  customer service that offers the support they need at every
+                  step.
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-green-600 to-teal-600 p-6 rounded-lg shadow-md transform translate-y-8">
+                <h3 className="text-xl font-semibold mb-3">UNIQUE BUSINESS</h3>
+                <p className="text-sm">
+                  Our team of expert professionals is dedicated to creating
+                  effective digital marketing strategies that deliver results.
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg shadow-md transform -translate-y-2">
+                <h3 className="text-xl font-semibold mb-3">
+                  CUSTOMIZED SOLUTION
+                </h3>
+                <p className="text-sm">
+                  We work closely with each client to understand their unique
+                  requirements and provide a customized solution for their
+                  growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+        {/* ******************************************** */}
+        <div>
+          <BusinessServiceHero />
         </div>
       </div>
     </>
