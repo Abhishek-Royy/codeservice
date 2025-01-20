@@ -10,6 +10,7 @@ import BusinessServiceHero from "../components/BusinessServiceHero";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Ratings from "../components/Ratings";
 
 gsap.registerPlugin(ScrollTrigger);
 function Home() {
@@ -58,26 +59,6 @@ function Home() {
   }, []);
 
   // **************************************************************************
-  useEffect(() => {
-    const cards = gsap.utils.toArray(".card");
-
-    gsap.set(cards, { opacity: 0, y: 50 }); // Initial state
-
-    cards.forEach((card, index) => {
-      gsap.to(card, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        delay: index * 0.2, // Stagger effect for cards
-        scrollTrigger: {
-          trigger: card,
-          start: "top 80%", // Start animation when card reaches 80% of viewport
-          toggleActions: "play none none reverse", // Replay on scroll back
-        },
-      });
-    });
-  }, []);
 
   return (
     <>
@@ -378,25 +359,20 @@ function Home() {
 
         {/* **************************************************************** */}
 
-        {/* <div className="w-full min-h-[100vh] bg-[#1B293B]">
-          <img
-            src={Background2}
-            alt=""
-            className="opacity-[0.2] w-full h-full bg-cover"
-          />
-          dsvndsjkbv
-        </div> */}
+        <div>
+          <Ratings />
+        </div>
 
-        {/* +++++++++++++++++++++++++++ */}
+        {/* **************************************************************** */}
+
+        {/* static code of why choose us section */}
         <div className="relative w-full min-h-[100vh] bg-[#1B293B] flex item-center justify-center">
-          {/* Background Image */}
           <img
             src={Background2}
             alt="Background"
             className="absolute top-0 left-0 w-full h-full object-cover opacity-20"
           />
 
-          {/* Overlay Text Content */}
           <div className="relative z-10 flex flex-col justify-center items-center text-center text-white px-6 py-12">
             <p className="text-xl md:text-lg font-bold mb-6 text-[#CD2234]">
               WHY CHOOSE US
@@ -444,64 +420,6 @@ function Home() {
             </div>
           </div>
         </div>
-
-        {/* static code of why choose us section */}
-        {/* <div className="relative w-full min-h-[100vh] bg-[#1B293B] flex item-center justify-center">
-         
-          <img
-            src={Background2}
-            alt="Background"
-            className="absolute top-0 left-0 w-full h-full object-cover opacity-20"
-          />
-
-         
-          <div className="relative z-10 flex flex-col justify-center items-center text-center text-white px-6 py-12">
-            <p className="text-xl md:text-lg font-bold mb-6 text-[#CD2234]">
-              WHY CHOOSE US
-            </p>
-            <p className="text-3xl md:text-4xl mb-10 max-w-2xl">
-              With the right tools, you can create powerful online campaigns
-              that will help your business reach a wider audience
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-lg shadow-md transform translate-y-6">
-                <h3 className="text-xl font-semibold mb-3">
-                  LEADING DIGITAL MARKETING COMPANY
-                </h3>
-                <p className="text-sm">
-                  Tech Sky Bird is A Leading Digital Marketing Company in
-                  Kolkata . We offer customized deals and effective digital
-                  marketing solutions for every business either big or small.
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-red-600 to-pink-600 p-6 rounded-lg shadow-md transform -translate-y-4">
-                <h3 className="text-xl font-semibold mb-3">TRUST & DELIVERY</h3>
-                <p className="text-sm">
-                  We are entrusted to providing our clients with exceptional
-                  customer service that offers the support they need at every
-                  step.
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-green-600 to-teal-600 p-6 rounded-lg shadow-md transform translate-y-8">
-                <h3 className="text-xl font-semibold mb-3">UNIQUE BUSINESS</h3>
-                <p className="text-sm">
-                  Our team of expert professionals is dedicated to creating
-                  effective digital marketing strategies that deliver results.
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-yellow-600 to-orange-600 p-6 rounded-lg shadow-md transform -translate-y-2">
-                <h3 className="text-xl font-semibold mb-3">
-                  CUSTOMIZED SOLUTION
-                </h3>
-                <p className="text-sm">
-                  We work closely with each client to understand their unique
-                  requirements and provide a customized solution for their
-                  growth.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> */}
 
         {/* ******************************************** */}
         <div>
