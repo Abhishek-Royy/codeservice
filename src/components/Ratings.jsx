@@ -1,133 +1,97 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
+import Slider from "react-slick";
+import { motion } from "framer-motion";
 
-const comments = [
+const testimonials = [
   {
-    author: "User 1",
-    rating: 5,
-    comment: "Excellent service! Highly recommend it.",
-    color: "bg-gradient-to-r from-blue-200 to-blue-300", // Added color
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo9d7BbE1riJFdkbc97xhb1azvToy5axM01w&s",
+    text: "Why is this important? Because clients want to know the businesses they depend on for advice, are well managed in their own right. Not only that but this event gives you the chance to give your back-office team.",
+    name: "Mahfuz Riad",
+    designation: "UI Designer & CEO",
+    img: "http://t.commonsupport.com/adro/images/resource/thumb-1.jpg",
   },
   {
-    author: "User 2",
-    rating: 4,
-    comment: "Good experience, but could be improved in some areas.",
-    color: "bg-gradient-to-r from-green-200 to-green-300", // Added color
-    image:
-      "https://img.freepik.com/premium-photo/small-boy-colorful-background-funny-cartoon-character-school-kid-3d-generative-ai_58409-28878.jpg?w=360",
+    text: "Why is this important? Because clients want to know the businesses they depend on for advice, are well managed in their own right. Not only that but this event gives you the chance to give your back-office team.",
+    name: "Mahfuz Riad",
+    designation: "UI Designer & CEO",
+    img: "http://t.commonsupport.com/adro/images/resource/thumb-1.jpg",
   },
   {
-    author: "User 3",
-    rating: 3,
-    comment: "Average service. Nothing special.",
-    color: "bg-gradient-to-r from-yellow-200 to-yellow-300", // Added color
-    image:
-      "https://img.freepik.com/premium-photo/small-boy-colorful-background-funny-cartoon-character-school-kid-3d-generative-ai_58409-28549.jpg?w=360",
-  },
-  {
-    author: "User 4",
-    rating: 5,
-    comment: "Amazing experience! Will use again.",
-    color: "bg-gradient-to-r from-purple-200 to-purple-300", // Added color
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3THCvODZlKTAHZ_0luXG52c0GC9lR7r3-TNskwhi5I7bY5UP937mDShBciUoJMmeUaUs&usqp=CAU",
-  },
-  {
-    author: "User 5",
-    rating: 2,
-    comment: "Disappointing service. Not worth the price.",
-    color: "bg-gradient-to-r from-red-200 to-red-300", // Added color
-    image:
-      "https://static.vecteezy.com/system/resources/thumbnails/029/364/941/small_2x/3d-carton-of-boy-going-to-school-ai-photo.jpg",
-  },
-  {
-    author: "User 6",
-    rating: 4,
-    comment: "Pretty good",
-    color: "bg-gradient-to-r from-pink-200 to-pink-300", // Added color
-    image:
-      "https://static.vecteezy.com/system/resources/previews/029/364/952/non_2x/3d-carton-of-boy-going-to-school-ai-photo.jpg",
-  },
-  {
-    author: "User 7",
-    rating: 3,
-    comment: "Okay service",
-    color: "bg-gradient-to-r from-indigo-200 to-indigo-300", // Added color
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQouzf_f-HnxQ-6Euu9xXSiBR8J6NCHI_fEqQ&s",
+    text: "Why is this important? Because clients want to know the businesses they depend on for advice, are well managed in their own right. Not only that but this event gives you the chance to give your back-office team.",
+    name: "Mahfuz Riad",
+    designation: "UI Designer & CEO",
+    img: "http://t.commonsupport.com/adro/images/resource/thumb-1.jpg",
   },
 ];
 
-const Ratings = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % comments.length);
-    }, 3000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <span
-          key={i}
-          className={`text-xl ${
-            i <= rating ? "text-yellow-500" : "text-gray-300"
-          }`}
-        >
-          ★
-        </span>
-      );
-    }
-    return stars;
+const TestimonialSection = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
   };
 
   return (
-    <section className="py-12 bg-gray-100 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-          What Our Customers Say
-        </h2>
-        <div className="relative w-full overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {comments.map((comment, index) => (
-              <div
-                key={index}
-                className={`w-full flex-shrink-0 px-6 md:px-12 py-8 rounded-lg shadow-md mx-4 md:mx-8 ${comment.color}`}
+    <section className="testimonial-section relative py-20 overflow-hidden">
+      {/* Background Animation */}
+      <motion.div
+        className="absolute -left-40 top-1/4 w-[700px] h-[700px] bg-no-repeat bg-center"
+        style={{
+          backgroundImage: `url('http://t.commonsupport.com/adro/images/icons/ring-circle.png')`,
+        }}
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 25,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      ></motion.div>
+
+      <div className="large-container mx-auto px-6 max-w-7xl">
+        {/* Title */}
+        <div className="sec-title text-center mb-16">
+          <span className="title text-lg uppercase text-[#CD2234]">Testimonial</span>
+          <h2 className="text-4xl font-bold text-[#2B2F6F]">What Our Core Client Say?</h2>
+        </div>
+
+        {/* Testimonial Carousel */}
+        <Slider {...settings} className="testimonial-carousel">
+          {testimonials.map((item, index) => (
+            <div key={index} className="testimonial-block px-4">
+              <motion.div
+                className="inner-box p-10 bg-white shadow-lg rounded-lg"
+                whileHover={{ scale: 1.05 }}
               >
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gray-400 mr-4">
-                    <img
-                      className="w-full h-full object-cover rounded-full"
-                      src={comment.image}
-                      alt={comment.author}
-                    />
-                  </div>
+                <p className="text-lg text-gray-600 mb-6">{item.text}</p>
+                <div className="info-box flex items-center gap-4">
+                  <img
+                    src={item.img}
+                    alt={item.name}
+                    className="w-20 h-20 rounded-full border-4 border-gray-200 shadow-md"
+                  />
                   <div>
-                    <h3 className="text-lg font-medium text-gray-800">
-                      {comment.author}
-                    </h3>
-                    <div className="flex">{renderStars(comment.rating)}</div>
+                    <h4 className="name text-xl font-semibold text-gray-800">{item.name}</h4>
+                    <span className="designation text-gray-500">{item.designation}</span>
                   </div>
                 </div>
-                <p className="text-gray-700 leading-relaxed">
-                  {comment.comment}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+              </motion.div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      {/* Image Layer */}
+      <div className="thumb-layer absolute right-10 top-32">
+        <img
+          src="http://t.commonsupport.com/adro/images/resource/user-thumbs.png"
+          alt="Testimonials"
+          className="w-72 h-auto"
+        />
       </div>
     </section>
   );
 };
 
-export default Ratings;
+export default TestimonialSection;
