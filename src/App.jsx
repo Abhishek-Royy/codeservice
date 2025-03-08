@@ -1,28 +1,58 @@
-import React from "react";
+// import React from "react";
 
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+// import Home from "./pages/Home";
+// import About from "./pages/About";
+// import Contactus from "./pages/Contactus";
+// import Customer from "./pages/Customer";
+// import Service from "./pages/Service";
+// import Footer from "./components/Footer";
+
+// function App() {
+//   return (
+//     <div>
+//       <BrowserRouter>
+
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/about" element={<About />} />
+//           <Route path="/service" element={<Service />} />
+//           <Route path="/customer" element={<Customer />} />
+//           <Route path="/contact-us" element={<Contactus />} />
+//         </Routes>
+//         <Footer/>
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contactus from "./pages/Contactus";
-import Customer from "./pages/Customer";
+import Blog from "./pages/Blog";
 import Service from "./pages/Service";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <Navbar /> */}
+      <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/service" element={<Service />} />
-          <Route path="/customer" element={<Customer />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contact-us" element={<Contactus />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -5,7 +5,10 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
+
+
 const Footer = () => {
+
   return (
     <footer className="bg-[#0a2540] text-white py-10">
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -136,6 +139,10 @@ const Footer = () => {
       <div className="mt-10 text-center text-sm text-gray-400">
         <p>Copyright © 2025 Powered by CodeFusion Co.</p>
       </div>
+
+      {/* ********************************** */}
+
+  
     </footer>
   );
 };

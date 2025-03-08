@@ -76,7 +76,7 @@ function Home() {
           <div className="absolute inset-0 bg-black opacity-50"></div>
 
           {/* Navbar */}
-          <Navbar />
+          {/* <Navbar /> */}
 
           {/* Content Section */}
           <div className="cont-1 lg:w-full lg:h-[88vh] h-auto w-[95%] mx-auto px-0  lg:px-20 lg:flex items-center relative z-10 py-20">
@@ -124,29 +124,29 @@ function Home() {
                 graphics, and overall marketing expertise.
               </p>
               <div className="lg:flex gap-4 w-full buttons">
-                <button className="py-3 lg:w-[160px] w-full bg-[#CD2234] text-white font-semibold rounded-md hover:bg-[#008FF2] transition duration-300">
+                <button className="py-3 lg:w-[160px] w-full bg-[#CD2234] text-white font-semibold rounded-md hover:bg-[#ff2222] transition duration-300">
                   Get Started
                 </button>
-                <button className="py-3 lg:w-[160px] w-full mt-5 lg:mt-0 border border-white text-white font-semibold rounded-md hover:bg-[#008FF2] transition duration-300">
+                <button className="py-3 lg:w-[160px] w-full mt-5 lg:mt-0 border border-white text-white font-semibold rounded-md hover:bg-[#CD2234] transition duration-300">
                   Read More
                 </button>
               </div>
             </div>
 
             {/* Right Content */}
-            <div className="cont1-right w-full lg:w-1/2 h-full flex items-center justify-center">
+            {/* <div className="cont1-right w-full lg:w-1/2 h-full flex items-center justify-center">
               <img
                 src="https://www.innovativedigitalmarketing.in/Blog/wp-content/uploads/2019/04/s3-tree.gif"
                 alt="Business Growth"
                 className="max-w-full h-auto object-contain"
               />
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* ************************************ */}
         <div className="sec-2 w-full min-h-[100vh] py-20 px-0 flex flex-col items-center lg:px-20">
-          <p className="text-center text-lg text-[#CD2234]">WHAT TO DO</p>
+          <p className="text-center text-2xl text-[#CD2234]">WHAT WE DO</p>
           <h1 className="text-center text-4xl font-bold lg:w-1/2 mx-auto text-[#2B2F6F] mt-5">
             We Offer Top to Bottom Solutions For Your Online Presence
           </h1>
@@ -231,7 +231,7 @@ function Home() {
               </div>
             </motion.div>
           </div>
-          <button className="py-4 w-[160px]  mt-10 bg-[#CD2234] text-white font-semibold rounded-md hover:bg-[#008FF2] transition duration-300">
+          <button className="py-4 w-[160px]  mt-10 bg-[#CD2234] text-white font-semibold rounded-md hover:bg-[#ff2222] transition duration-300">
             More Services
           </button>
         </div>
@@ -424,11 +424,9 @@ function Home() {
 
         {/* ******************************************** */}
 
-
-      <div>
-        <Partner/>
-      </div>
-
+        <div>
+          <Partner />
+        </div>
 
         {/* ******************************************** */}
 
