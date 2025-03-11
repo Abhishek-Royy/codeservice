@@ -161,7 +161,7 @@ const Navbar = () => {
 
   return (
     <motion.div
-      className={`bg-[#0a2540f0] flex justify-between items-center h-20 max-w-full sticky top-0 mx-auto px-2 md:px-20 text-white z-[999999999] transition-transform duration-300 ${
+      className={`bg-[#0a2540] flex justify-between items-center h-20 max-w-full sticky top-0 mx-auto px-2 md:px-20 text-white z-[999999999] transition-transform duration-300 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
   
@@ -184,7 +184,7 @@ const Navbar = () => {
             onMouseEnter={() => setActiveMenu(item.text)}
             onMouseLeave={() => setActiveMenu("")}
           >
-            <NavLink to={item.route} className="flex items-center">
+            <NavLink to={item.route} className="flex items-center ">
               {item.text}
             </NavLink>
           </li>
@@ -203,7 +203,7 @@ const Navbar = () => {
         initial={false}
         animate={nav ? "open" : "closed"}
         variants={variants}
-        className={`fixed md:hidden left-0 top-20 w-full h-[100vh] border-r border-r-gray-900 bg-[#0A2540]  ease-linear duration-75 ${
+        className={`fixed md:hidden left-0 top-20 w-full h-[100vh] border-r border-r-gray-900 bg-[#0A2540]  ease-linear duration-75 overflow-x-hidden ${
           nav ? "block" : "hidden"
         }`}
       >
