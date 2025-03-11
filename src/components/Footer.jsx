@@ -54,27 +54,27 @@ const Footer = () => {
           <h3 className="font-bold text-lg mb-4">Services</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/" className="hover:text-gray-400">
                 Home
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/about" className="hover:text-gray-400">
                 About
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/service" className="hover:text-gray-400">
                 Service
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/portfolio" className="hover:text-gray-400">
                 Portfolio
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/contact-us" className="hover:text-gray-400">
                 Contact us
               </a>
             </li>
@@ -86,27 +86,27 @@ const Footer = () => {
           <h3 className="font-bold text-lg mb-4">Support</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/portfolio"  className="hover:text-gray-400">
                 Help Center
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/portfolio"  className="hover:text-gray-400">
                 Career
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/portfolio"  className="hover:text-gray-400">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/portfolio"  className="hover:text-gray-400">
                 Terms & Conditions
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
+              <a href="/portfolio"  className="hover:text-gray-400">
                 Cancellation and Refund Policy
               </a>
             </li>
